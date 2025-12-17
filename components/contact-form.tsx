@@ -69,14 +69,14 @@ export function ContactForm() {
             </div>
             <div className="text-left">
               <h3 className="font-heading font-bold text-foreground mb-1">Email</h3>
-              <p>
+              {/* <p>
                 <a href="mailto:info@charvex.com" className="text-foreground/70 hover:text-[#FF6B00] transition-colors">
                   info@charvex.com
                 </a>
-              </p>
+              </p> */}
               <p>
-                <a href="mailto:hr@charvex.com" className="text-foreground/70 hover:text-[#FF6B00] transition-colors">
-                  hr@charvex.com
+                <a href="mailto:hr@charvexglobal.com" className="text-foreground/70 hover:text-[#FF6B00] transition-colors">
+                  hr@charvexglobal.com
                 </a>
               </p>
             </div>
@@ -145,7 +145,7 @@ export function ContactForm() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com/charvex.in"
+            href="https://instagram.com/thecharvex"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6B00] hover:scale-110 transition-all"
@@ -155,7 +155,7 @@ export function ContactForm() {
 
           {/* Mail */}
           <a
-            href="mailto:info@charvex.com"
+            href="mailto:hr@charvexglobal.com"
             className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6B00] hover:scale-110 transition-all"
           >
             <Mail size={22} />

@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" })
 
 export const metadata: Metadata = {
-  title: "Charvex - IT Consulting & Technology",
+  title: "Charvex- IT Consulting & Technology",
   description:
     "Enterprise IT consulting, AI solutions, web development, ERP systems, and cloud infrastructure",
   generator: "v0.app",

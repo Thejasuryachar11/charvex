@@ -23,7 +23,7 @@ export function CTASection() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-lg text-secondary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss how Charvex Solutions can help you achieve your technology goals.
+            Let's discuss how Charvex Global can help you achieve your technology goals.
           </p>
 
           <button
@@ -46,12 +46,12 @@ export function CTASection() {
             <div className="flex flex-col items-center justify-center gap-4">
               {/* Email */}
               <a
-                href="mailto:hr@charvex.com"
+                href="mailto:hr@charvexglobal.com"
                 className="flex items-center gap-3 bg-card/50 border border-border/50 rounded-lg p-4 max-w-sm w-full justify-center hover:border-accent/50 transition-all"
               >
                 <Mail className="w-5 h-5 text-accent" />
                 <span className="text-foreground/80 font-medium hover:text-accent transition-colors">
-                  hr@charvex.com
+                  hr@charvexglobal.com
                 </span>
               </a>
 

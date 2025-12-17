@@ -44,7 +44,7 @@ export function ServicesHero() {
           {/* Hero Description */}
           <motion.div className="space-y-6 text-center">
             <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed">
-              Charvex offers innovative, end-to-end technology solutions crafted to accelerate digital transformation and empower businesses to achieve sustainable growth. We collaborate with organizations worldwide to deliver tailored, scalable, and impactful solutions that enhance productivity and drive measurable results.
+              Charvex  Global offers innovative, end-to-end technology solutions crafted to accelerate digital transformation and empower businesses to achieve sustainable growth. We collaborate with organizations worldwide to deliver tailored, scalable, and impactful solutions that enhance productivity and drive measurable results.
             </p>
 
             <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed">

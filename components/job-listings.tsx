@@ -206,7 +206,7 @@ export function JobListings() {
               href="mailto:hr@charvexsolutions.in?subject=Application for Position"
               className="inline-flex items-center justify-center gap-2 text-accent font-semibold bg-accent/10 hover:bg-accent/20 rounded-lg px-4 py-2 transition"
             >
-              <Mail size={18} /> hr@charvexsolutions.com
+              <Mail size={18} /> hr@charvexglobal.com
             </a>
             <button
               onClick={() => setShowModal(false)}

@@ -33,38 +33,38 @@ export function Footer() {
       {
         label: "Privacy Policy",
         content: `
-At Charvex Solutions, we are committed to protecting your privacy and ensuring transparency in how we handle your data. 
+At Charvex Global, we are committed to protecting your privacy and ensuring transparency in how we handle your data. 
 We collect only the information necessary to deliver and improve our services, and we process all personal data in accordance 
 with applicable data protection laws, including the Information Technology Act, 2000, and GDPR guidelines where applicable.
 
 Our data practices include:
-1. **Information Collection** – We collect data such as your name, contact details, and company information when you engage with our services.
-2. **Use of Data** – We use your information to enhance user experience, deliver solutions, provide customer support, and improve our offerings.
-3. **Data Sharing** – We never sell your personal data. We may share information only with trusted third parties that assist us in operations, under strict confidentiality.
-4. **Cookies and Tracking** – Our website uses analytics tools and cookies to monitor site performance and improve user interaction.
-5. **Data Security** – We employ advanced encryption, firewalls, and secure storage practices to safeguard all information.
-6. **User Rights** – You have the right to access, correct, or delete your personal data upon request.
-7. **Retention Policy** – Data is retained only as long as required for business or legal purposes.
-8. **Third-Party Links** – External websites linked from our platform are not covered under this policy.
-9. **Updates to Policy** – This policy may be updated periodically to reflect new compliance requirements or business practices.
+1. Information Collection – We collect data such as your name, contact details, and company information when you engage with our services.
+2. Use of Data – We use your information to enhance user experience, deliver solutions, provide customer support, and improve our offerings.
+3. Data Sharing – We never sell your personal data. We may share information only with trusted third parties that assist us in operations, under strict confidentiality.
+4. Cookies and Tracking – Our website uses analytics tools and cookies to monitor site performance and improve user interaction.
+5. Data Security – We employ advanced encryption, firewalls, and secure storage practices to safeguard all information.
+6. User Rights – You have the right to access, correct, or delete your personal data upon request.
+7. Retention Policy – Data is retained only as long as required for business or legal purposes.
+8. Third-Party Links – External websites linked from our platform are not covered under this policy.
+9. Updates to Policy – This policy may be updated periodically to reflect new compliance requirements or business practices.
 
-By using Charvex Solutions’ website or services, you consent to our Privacy Policy. For questions, please contact privacy@charvex.com.
+By using Charvex Global  website or services, you consent to our Privacy Policy. For questions, please contact hr@charvexglobal.com.
         `,
       },
       {
         label: "Terms of Service",
         content: `
-Welcome to Charvex Solutions. By accessing or using our website, services, or software, you agree to the following Terms of Service.
+Welcome to Charvex Global. By accessing or using our website, services, or software, you agree to the following Terms of Service.
 
-1. **Acceptance of Terms** – These terms constitute a legally binding agreement between you and Charvex Solutions.
-2. **Scope of Services** – Charvex provides IT consulting, software development, and digital transformation services as described on our website.
-3. **User Responsibilities** – You agree not to misuse our services, attempt to breach security, or use them for unlawful purposes.
-4. **Intellectual Property** – All content, code, logos, and visuals on our site are owned or licensed by Charvex Solutions and may not be reproduced without permission.
-5. **Service Availability** – We strive for uptime and reliability but may temporarily suspend services for maintenance or unforeseen issues.
-6. **Limitation of Liability** – Charvex Solutions is not responsible for indirect, incidental, or consequential damages arising from service use.
-7. **Termination** – We reserve the right to suspend access or terminate agreements in cases of violation or misuse.
-8. **Governing Law** – These terms are governed by the laws of India and subject to the jurisdiction of Bangalore courts.
-9. **Amendments** – Charvex reserves the right to modify these terms at any time with appropriate notification.
+1. Acceptance of Terms – These terms constitute a legally binding agreement between you and Charvex Solutions.
+2. Scope of Services – Charvex  Globalprovides IT consulting, software development, and digital transformation services as described on our website.
+3. User Responsibilities – You agree not to misuse our services, attempt to breach security, or use them for unlawful purposes.
+4. Intellectual Property – All content, code, logos, and visuals on our site are owned or licensed by Charvex Solutions and may not be reproduced without permission.
+5. Service Availability – We strive for uptime and reliability but may temporarily suspend services for maintenance or unforeseen issues.
+6. Limitation of Liability – Charvex Solutions is not responsible for indirect, incidental, or consequential damages arising from service use.
+7. Termination – We reserve the right to suspend access or terminate agreements in cases of violation or misuse.
+8. Governing Law – These terms are governed by the laws of India and subject to the jurisdiction of Bangalore courts.
+9. Amendments – Charvex reserves the right to modify these terms at any time with appropriate notification.
 
 Continued use of our services after changes indicates acceptance of the revised Terms of Service.
         `,
@@ -74,22 +74,22 @@ Continued use of our services after changes indicates acceptance of the revised 
         content: `
 Charvex Solutions uses cookies to enhance your browsing experience and analyze website traffic. Cookies are small files stored on your device that help us recognize you, remember preferences, and deliver better performance.
 
-1. **Types of Cookies We Use**
-   - **Essential Cookies:** Necessary for website functionality.
-   - **Analytical Cookies:** Help us understand user behavior and improve site usability.
-   - **Functional Cookies:** Store preferences such as language and layout.
-   - **Marketing Cookies:** Support personalized advertisements and promotions.
+1. Types of Cookies We Use
+   - Essential Cookies: Necessary for website functionality.
+   - Analytical Cookies: Help us understand user behavior and improve site usability.
+   - Functional Cookies: Store preferences such as language and layout.
+   - Marketing Cookies: Support personalized advertisements and promotions.
 
-2. **How We Use Cookies**
+2. How We Use Cookies
    We use cookies to:
    - Track site performance and engagement.
    - Personalize content and measure campaign effectiveness.
    - Maintain security and prevent fraud.
 
-3. **Managing Cookies**
+3. Managing Cookies
    You can control cookies via your browser settings. Disabling cookies may affect certain features of our website.
 
-4. **Third-Party Cookies**
+4. Third-Party Cookies
    Some analytics or marketing tools (like Google Analytics) may use third-party cookies, governed by their own privacy policies.
 
 By continuing to use our website, you consent to our cookie usage as described in this policy.
@@ -98,26 +98,26 @@ By continuing to use our website, you consent to our cookie usage as described i
       {
         label: "Security",
         content: `
-At Charvex Solutions, data protection and cybersecurity are top priorities. Our systems are designed following global security standards to ensure the confidentiality, integrity, and availability of all information processed through our networks.
+At Charvex Global, data protection and cybersecurity are top priorities. Our systems are designed following global security standards to ensure the confidentiality, integrity, and availability of all information processed through our networks.
 
-1. **Infrastructure Security**
+1. Infrastructure Security
    - We use cloud-native architecture with firewalls, intrusion detection systems, and encrypted data storage.
-2. **Access Control**
+2. Access Control
    - Strict identity management, MFA (multi-factor authentication), and role-based access are enforced.
-3. **Data Encryption**
+3. Data Encryption
    - All sensitive data is encrypted in transit (TLS 1.3) and at rest (AES-256).
-4. **Regular Audits**
+4. Regular Audits
    - We conduct internal and external security audits quarterly to identify and mitigate vulnerabilities.
-5. **Incident Response**
+5. Incident Response
    - A dedicated security team monitors systems 24/7 and follows an incident response plan aligned with ISO/IEC 27001.
-6. **Employee Training**
+6. Employee Training
    - Every Charvex employee undergoes annual security and compliance training.
-7. **Client Responsibility**
+7. Client Responsibility
    - Clients are encouraged to follow best practices for password management and system hygiene.
-8. **Reporting**
+8. Reporting
    - Any suspected breach or security incident can be reported to security@charvex.com for immediate review.
 
-Charvex Solutions remains committed to maintaining the highest standards of data security and resilience across our products and services.
+Charvex Global remains committed to maintaining the highest standards of data security and resilience across our products and services.
         `,
       },
     ],
@@ -138,7 +138,7 @@ Charvex Solutions remains committed to maintaining the highest standards of data
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
               <CharvexLogo size="sm" animated={true} />
-              <span className="font-heading font-bold text-lg">Charvex</span>
+              <span className="font-heading font-bold text-lg">Charvex Global</span>
             </Link>
             <p className="text-white/70 text-sm mb-6">
               Empowering digital transformation through AI, ERP, and cloud-driven innovation.
@@ -156,7 +156,7 @@ Charvex Solutions remains committed to maintaining the highest standards of data
 
   {/* Instagram */}
   <a
-    href="https://instagram.com/charvex.in"
+    href="https://instagram.com/thecharvex"
     target="_blank"
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6B00] hover:scale-110 transition-all"
@@ -166,7 +166,7 @@ Charvex Solutions remains committed to maintaining the highest standards of data
 
   {/* Mail */}
   <a
-    href="mailto:info@charvex.com"
+    href="mailto:hr@charvexglobal.com"
     className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6B00] hover:scale-110 transition-all"
   >
     <Mail size={18} />
@@ -227,7 +227,7 @@ Charvex Solutions remains committed to maintaining the highest standards of data
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-[#FF6B00]" />
-                <a href="mailto:info@charvex.com" className="text-white/70 hover:text-[#FF6B00] text-sm">info@charvex.com</a>
+                <a href="mailto:hr@charvexglobal.com" className="text-white/70 hover:text-[#FF6B00] text-sm">hr@charvexglobal.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={16} className="text-[#FF6B00]" />

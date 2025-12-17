@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 export function HeroSection() {
   const [text, setText] = useState("")
   const fullText =
-    "Charvex delivers cutting-edge IT consulting, AI-powered solutions, and enterprise infrastructure to drive your digital transformation."
+    "Charvex Global delivers cutting-edge IT consulting, AI-powered solutions, and enterprise infrastructure to drive your digital transformation."
 
   useEffect(() => {
     let index = 0
@@ -159,7 +159,7 @@ export function HeroSection() {
           {[
             {
               title: "Who We Are",
-              desc: "Charvex is a next-generation technology company focused on building digital ecosystems powered by AI, cloud, and intelligent design.",
+              desc: "Charvex Global is a next-generation technology company focused on building digital ecosystems powered by AI, cloud, and intelligent design.",
             },
             {
               title: "Why We Exist",

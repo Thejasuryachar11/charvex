@@ -9,6 +9,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
+    {label:"Home",href:"/"},
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
@@ -23,7 +24,7 @@ export function Navigation() {
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <CharvexLogo size="sm" animated={true} />
             <span className="font-heading font-extrabold text-2xl sm:text-3xl bg-gradient-to-r from-orange-500 to-orange-700 bg-clip-text text-transparent">
-  Charvex
+  Charvex Global
 </span>
 
           </Link>

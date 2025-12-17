@@ -55,14 +55,14 @@ export function AboutHero() {
             variants={rotateInVariants}
             style={{ perspective: "1000px" }}
           >
-            About <span className="text-accent">Charvex</span>
+            About <span className="text-accent">Charvex Global</span>
           </motion.h1>
 
           <motion.p
             className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed"
             variants={slideUpVariants}
           >
-            Founded by <span className="font-semibold text-foreground">Theja Suryachar P J</span>, Charvex is a
+            Founded by <span className="font-semibold text-foreground">Theja Suryachar P J</span>, Charvex Global is a
             forward-thinking IT consulting and technology services company committed to helping businesses achieve
             digital excellence. We specialize in delivering custom software development, cloud solutions, and strategic
             technology consulting designed to accelerate growth, enhance efficiency, and empower innovation.
