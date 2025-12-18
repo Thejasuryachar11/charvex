@@ -1,105 +1,119 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { containerVariants, slideUpVariants, flipInVariants } from "@/lib/animations"
+import { containerVariants, slideUpVariants } from "@/lib/animations"
 import { Mail, Linkedin } from "lucide-react"
+
+/* ---------------- TEAM DATA ---------------- */
 
 const team = [
   {
     name: "Yatish P V",
     role: "CEO",
-    email: "yatish.pv@gmail.com",
-    linkedin: "https://www.linkedin.com/in/yatishpv?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    email: "ceo@charvexglobal.com",
+    linkedin:
+      "https://www.linkedin.com/in/yatishpv?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    photo: "/yati.jpeg",
   },
   {
     name: "Theja Suryachar P J",
     role: "Founder & CFO",
-    email: "thejasuryacharpj@gmail.com",
+    email: "info@charvexglobal.com",
     linkedin: "https://linkedin.com/in/thejasuryachar11/",
+    photo: "/thejas.jpeg",
   },
   {
     name: "Ebenezer Mathew",
     role: "COO",
-    email: "ebenezermathew0711@gmail.com",
+    email: "mathew@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/ebenezer-mathew-32b6521ba/",
   },
   {
     name: "Jeevan",
     role: "CPO",
-    email: "jeevanjeevajibbi@gmail.com",
+    email: "jeevan@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/jeevan-k-157994356/",
   },
   {
     name: "Rahul A G",
     role: "CMO & VP",
-    email: "rahulraj79186@gmail.com",
+    email: "rahul@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/rahul-a-g-651056241/",
   },
   {
     name: "Mohammed Ahazar",
     role: "CTO",
-    email: "mdahazar.8675@gmail.com",
+    email: "mdahazar@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/mohammed-ahazar-829629266/",
   },
   {
     name: "Chethan H S",
     role: "HR Manager",
-    email: "chethanhs829@gmail.com",
+    email: "hr@charvexglobal.com",
     linkedin: "https://linkedin.com/in/chethan-h-s-991084310/",
   },
   {
     name: "Abhi M S",
     role: "Head of Engineering",
-    email: "abhimsuma03@gmail.com",
-    linkedin: "https://www.linkedin.com/in/abhi-m-s-9a19a82a4/?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    email: "abhims@charvexglobal.com",
+    linkedin: "https://www.linkedin.com/in/abhi-m-s-9a19a82a4/",
   },
   {
     name: "Siddharth",
     role: "Strategy Lead",
-    email: "94siddharthkanabargi@gmail.com",
+    email: "siddharth@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/siddharth-kanabargi/",
   },
   {
     name: "Thirumala",
     role: "UI/UX Designer",
-    email: "@gmail.com",
+    email: "thirumala@charvexglobal.com",
     linkedin: "https://www.linkedin.com/in/thirumala-b066b2266/",
+  },
+  {
+    name: "Abhishek Koli",
+    role: "Developer",
+    email: "abhishek@charvexglobal.com",
+    linkedin: "https://www.linkedin.com/in/abhishek-koli18/",
+  },
+  {
+    name: "Suhas",
+    role: "Developer",
+    email: "suhas@charvexglobal.com",
+    linkedin: "https://www.linkedin.com/in/suhas-developer/",
   },
 ]
 
-// Separate leadership from others
+/* ---------------- FILTERS ---------------- */
+
 const leadership = team.filter((m) =>
   ["CEO", "Founder & CFO"].includes(m.role)
 )
-const others = team.filter(
-  (m) => !["CEO", "Founder & CFO"].includes(m.role)
-)
+
+const roleGroups = {
+  Leadership: ["COO", "CTO", "CPO", "CMO & VP"],
+  Engineering: ["Head of Engineering", "Developer"],
+  Design: ["UI/UX Designer"],
+  Operations: ["HR Manager", "Strategy Lead"],
+}
+
+/* ---------------- SECTION ---------------- */
 
 export function TeamSection() {
-  return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/5 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-15">
-        <div
-          style={{
-            backgroundImage:
-              "url(/placeholder.svg?height=800&width=1600&query=people network connection nodes abstract)",
-            backgroundSize: "500px 500px",
-            backgroundPosition: "0 0",
-          }}
-          className="absolute inset-0"
-        />
-      </div>
+  const [showTeam, setShowTeam] = useState(false)
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Heading */}
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/5">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           variants={slideUpVariants}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             Our Leadership Team
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
@@ -107,93 +121,123 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        {/* CEO & Founder */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16 justify-center max-w-3xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 max-w-3xl mx-auto"
         >
-          {leadership.map((member, index) => (
-            <TeamCard key={index} member={member} />
+          {leadership.map((member, i) => (
+            <TeamCard key={i} member={member} />
           ))}
         </motion.div>
 
-        {/* Other Members (4 per row) */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {others.map((member, index) => (
-            <TeamCard key={index} member={member} />
-          ))}
-        </motion.div>
+        <div className="text-center mb-16">
+          <motion.button
+            onClick={() => setShowTeam((v) => !v)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-7 py-3 rounded-full bg-accent text-accent-foreground font-semibold"
+          >
+            {showTeam ? "View Less" : "Meet Our Team"}
+          </motion.button>
+        </div>
+
+        {showTeam &&
+          Object.entries(roleGroups).map(([group, roles]) => {
+            const members = team.filter((m) => roles.includes(m.role))
+            if (!members.length) return null
+
+            return (
+              <div key={group} className="mb-20">
+                <h3 className="text-2xl font-bold text-center mb-10">
+                  {group}
+                </h3>
+
+                <motion.div
+                  variants={containerVariants}
+                  className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(260px,1fr))]"
+                >
+                  {members.map((member, i) => (
+                    <TeamCard key={i} member={member} />
+                  ))}
+                </motion.div>
+              </div>
+            )
+          })}
       </div>
     </section>
   )
 }
 
-// Reusable TeamCard Component (No Photo)
+/* ---------------- TEAM CARD ---------------- */
+
 function TeamCard({ member }) {
+  const isLeadership =
+    member.role === "CEO" || member.role === "Founder & CFO"
+
+  const isCEO = member.role === "CEO"
+
   return (
     <motion.div
-      variants={flipInVariants}
-      className="bg-background rounded-xl p-6 border border-border hover:border-accent/50 transition-all duration-300 text-center group relative overflow-hidden"
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05, y: -6 }}
+      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+      className="bg-background rounded-xl p-6 border border-border text-center hover:shadow-xl transition-all"
     >
-      {/* Animated overlay */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        animate={{ opacity: [0, 0.1, 0] }}
-        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-      />
+      {/* CEO & FOUNDER */}
+      {isLeadership && member.photo ? (
+        <>
+          {/* ROLE (NOT ORANGE) */}
+          <p className="font-bold text-accent mb-3">
 
-      <div className="relative z-10">
-        <h3 className="text-base font-heading font-bold text-foreground mb-1">
-          {member.name}
-        </h3>
-        <p className="text-sm font-semibold text-accent mb-3">{member.role}</p>
+            {member.role}
+          </p>
 
-        {/* CEO Badge */}
-        {member.role === "CEO" && (
-          <motion.span
-            className="inline-block bg-[#FF6B00]/10 text-[#FF6B00] text-xs font-medium px-3 py-1 rounded-full mb-3 animate-pulse"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            15+ Years of Experience
-          </motion.span>
-        )}
+          {/* PHOTO */}
+          <div className="mb-5 flex justify-center">
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="w-40 h-40 object-cover object-top rounded-lg border border-border"
+            />
+          </div>
 
-        {/* Contact Icons */}
-        <div className="flex gap-3 justify-center">
-          <motion.a
-            href={`mailto:${member.email}`}
-            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 hover:bg-accent/20 text-accent transition-colors"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            title={member.email}
-          >
-            <Mail size={16} />
-          </motion.a>
+          {/* NAME */}
+          <h3 className="font-bold text-lg">
+            {member.name}
+          </h3>
 
-          <motion.a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 hover:bg-accent/20 text-accent transition-colors"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            title="LinkedIn Profile"
-          >
-            <Linkedin size={16} />
-          </motion.a>
-        </div>
+          
+        </>
+      ) : (
+        /* ALL OTHER TEAM MEMBERS */
+        <>
+          <h3 className="font-bold text-lg mb-1">
+            {member.name}
+          </h3>
+
+          {/* ROLE — ORANGE */}
+          <p className="font-bold text-accent mb-4">
+            {member.role}
+          </p>
+        </>
+      )}
+
+      {/* CONTACT ICONS */}
+      <div className="flex justify-center gap-4">
+        <a
+          href={`mailto:${member.email}`}
+          className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition"
+        >
+          <Mail size={16} />
+        </a>
+
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition"
+        >
+          <Linkedin size={16} />
+        </a>
       </div>
     </motion.div>
   )

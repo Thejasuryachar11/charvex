@@ -19,14 +19,17 @@ export function Footer() {
       { label: "Projects", href: "/projects" },
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
+      { label: "Internships", href: "/careers" },
+      // { label: "Contacts", href: "/contact" }
     ],
     Services: [
       { label: "Web Development", href: "/services" },
-      { label: "AI & Data Science", href: "/services" },
       { label: "ERP Systems", href: "/services" },
-      { label: "Cloud Solutions", href: "/services" },
+      { label: "Machine Learning", href: "/services" },
+      // { label: "Cloud Solutions", href: "/services" },
       { label: "UI/UX Design", href: "/services" },
-      { label: "Cybersecurity", href: "/services" },
+      { label: "AI & Data Science", href: "/services" },
+      // { label: "Cybersecurity", href: "/services" },
       { label: "Automation & DevOps", href: "/services" }
     ],
     Legal: [
@@ -48,7 +51,7 @@ Our data practices include:
 8. Third-Party Links – External websites linked from our platform are not covered under this policy.
 9. Updates to Policy – This policy may be updated periodically to reflect new compliance requirements or business practices.
 
-By using Charvex Global  website or services, you consent to our Privacy Policy. For questions, please contact hr@charvexglobal.com.
+By using Charvex Global  website or services, you consent to our Privacy Policy. For questions, please contact support@charvexglobal.com.
         `,
       },
       {
@@ -166,11 +169,12 @@ Charvex Global remains committed to maintaining the highest standards of data se
 
   {/* Mail */}
   <a
-    href="mailto:hr@charvexglobal.com"
+    href="mailto:info@charvexglobal.com"
     className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6B00] hover:scale-110 transition-all"
   >
     <Mail size={18} />
   </a>
+  
 
 {/* ✅ WhatsApp */}
 <a
@@ -226,9 +230,37 @@ Charvex Global remains committed to maintaining the highest standards of data se
             <h3 className="font-heading font-bold mb-4 text-sm uppercase tracking-wide">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Mail size={16} className="text-[#FF6B00]" />
-                <a href="mailto:hr@charvexglobal.com" className="text-white/70 hover:text-[#FF6B00] text-sm">hr@charvexglobal.com</a>
-              </li>
+  <Mail size={16} className="text-[#FF6B00] mt-1" />
+  <div className="flex flex-col gap-1">
+    <a
+      href="mailto:hr@charvexglobal.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 hover:text-[#FF6B00] text-sm"
+    >
+      hr@charvexglobal.com
+    </a>
+
+    <a
+      href="mailto:info@charvexglobal.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 hover:text-[#FF6B00] text-sm"
+    >
+      info@charvexglobal.com
+    </a>
+    <a
+      href="mailto:support@charvexglobal.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 hover:text-[#FF6B00] text-sm"
+    >
+      support@charvexglobal.com
+    </a>
+  </div>
+</li>
+
+              
               <li className="flex items-start gap-3">
                 <Phone size={16} className="text-[#FF6B00]" />
                 <a href="tel:+919482350233" className="text-white/70 hover:text-[#FF6B00] text-sm">+91 94823 50233</a>
@@ -244,8 +276,8 @@ Charvex Global remains committed to maintaining the highest standards of data se
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/70">
-            <p>&copy; {currentYear} Charvex Solutions. All rights reserved.</p>
-            <p>Built with excellence by <span className="text-[#FF6B00] font-semibold">Charvex Team</span></p>
+            <p>&copy; {currentYear} Charvex Global. All rights reserved.</p>
+            <p>Built with excellence by <span className="text-[#FF6B00] font-semibold">Charvex Global Team</span></p>
           </div>
         </div>
       </div>

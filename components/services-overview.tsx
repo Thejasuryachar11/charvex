@@ -20,40 +20,48 @@ const services = [
     title: "Web Development",
     description: "Modern, scalable web applications built with cutting-edge technologies.",
   },
-  {
-    icon: Brain,
-    title: "AI & Data Science",
-    description: "Intelligent solutions powered by machine learning and advanced analytics.",
-  },
+  
+  
   {
     icon: Database,
     title: "ERP Systems",
     description: "Enterprise resource planning solutions for streamlined operations.",
   },
   {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description: "Secure, scalable cloud infrastructure and migration services.",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Consulting",
-    description: "Strategic guidance for digital transformation and growth.",
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimization",
-    description: "Maximize efficiency and reduce costs with our optimization services.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cybersecurity & Compliance",
-    description: "Comprehensive protection and regulatory readiness for your enterprise systems.",
-  },
+  icon: Brain,
+  title: "Machine Learning",
+  description: "Intelligent models that learn from data to predict, optimize, and automate processes.",
+},
+
+  // {
+  //   icon: Cloud,
+  //   title: "Cloud Solutions",
+  //   description: "Secure, scalable cloud infrastructure and migration services.",
+  // },
+  // {
+  //   icon: Briefcase,
+  //   title: "Business Consulting",
+  //   description: "Strategic guidance for digital transformation and growth.",
+  // },
+  // {
+  //   icon: Zap,
+  //   title: "Performance Optimization",
+  //   description: "Maximize efficiency and reduce costs with our optimization services.",
+  // },
+  // {
+  //   icon: ShieldCheck,
+  //   title: "Cybersecurity & Compliance",
+  //   description: "Comprehensive protection and regulatory readiness for your enterprise systems.",
+  // },
   {
     icon: Palette,
     title: "UI/UX Design & Branding",
     description: "Design-led innovation that enhances engagement and reflects your brand identity.",
+  },
+  {
+    icon: Brain,
+    title: "AI & Data Science",
+    description: "Intelligent solutions powered by machine learning and advanced analytics.",
   },
   {
     icon: Workflow,

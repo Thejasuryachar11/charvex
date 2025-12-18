@@ -2,218 +2,246 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { MapPin, Briefcase, Clock, ArrowRight, Mail } from "lucide-react"
-import { containerVariants, slideUpVariants } from "@/lib/animations"
+import { ArrowRight, X } from "lucide-react"
+import { slideUpVariants } from "@/lib/animations"
 
-const jobs = [
-  {
-    id: 1,
-    title: "Full Stack Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Develop and maintain scalable web applications across the stack.",
-    skills: ["React", "Node.js", "TypeScript", "AWS", "GraphQL"],
-  },
-  {
-    id: 2,
-    title: "Backend Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description: "Design APIs, optimize performance, and build robust server-side systems.",
-    skills: ["Node.js", "Python", "PostgreSQL", "Docker", "Microservices"],
-  },
-  {
-    id: 3,
-    title: "Frontend Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "2+ years",
-    description: "Build modern, responsive, and high-performing user interfaces.",
-    skills: ["React", "Next.js", "HTML", "CSS", "TypeScript"],
-  },
-  {
-    id: 4,
-    title: "DevOps Engineer",
-    department: "Infrastructure",
-    location: "Remote",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Manage deployments, automate pipelines, and ensure system reliability.",
-    skills: ["AWS", "Kubernetes", "Docker", "CI/CD", "Terraform"],
-  },
-  {
-    id: 5,
-    title: "AI/ML Engineer",
-    department: "Data Science",
-    location: "Hybrid",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Develop and deploy machine learning models and AI-driven solutions.",
-    skills: ["Python", "TensorFlow", "PyTorch", "Pandas", "Machine Learning"],
-  },
-  {
-    id: 6,
-    title: "UI/UX Designer",
-    department: "Design",
-    location: "Remote",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Create intuitive and visually appealing user experiences.",
-    skills: ["Figma", "Design Systems", "User Research", "Prototyping", "Wireframing"],
-  },
-  {
-    id: 7,
-    title: "Product Manager",
-    department: "Product",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description: "Define product strategy, manage the roadmap, and lead cross-functional teams.",
-    skills: ["Agile", "Scrum", "Analytics", "Roadmapping", "Leadership"],
-  },
-  {
-    id: 8,
-    title: "Marketing & Growth Manager",
-    department: "Marketing",
-    location: "Remote",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Drive user acquisition, brand awareness, and marketing campaigns.",
-    skills: ["SEO", "Content Marketing", "Google Ads", "Analytics", "Social Media"],
-  },
-  {
-    id: 9,
-    title: "Sales & Business Development Executive",
-    department: "Sales",
-    location: "Hybrid",
-    type: "Full-time",
-    experience: "2+ years",
-    description: "Build partnerships, acquire clients, and increase revenue.",
-    skills: ["CRM", "Lead Generation", "Negotiation", "B2B Sales", "Communication"],
-  },
-  {
-    id: 10,
-    title: "HR & Talent Acquisition Specialist",
-    department: "Operations",
-    location: "Remote",
-    type: "Full-time",
-    experience: "2+ years",
-    description: "Recruit top talent, manage onboarding, and nurture company culture.",
-    skills: ["Recruitment", "Onboarding", "HR Tools", "Culture Building", "Employee Engagement"],
-  },
-];
+/* ---------------- DATA ---------------- */
+
+const jobOpenings = [
+  // Web Development
+  { id: 1, title: "Frontend Engineer" },
+  { id: 2, title: "Backend Engineer" },
+  { id: 3, title: "Full Stack Engineer" },
+
+  // ERP Systems
+  { id: 4, title: "ERP Consultant" },
+  { id: 5, title: "ERP Developer" },
+
+  // Machine Learning
+  { id: 6, title: "Machine Learning Engineer" },
+
+  // UI/UX Design
+  { id: 7, title: "UI/UX Designer" },
+
+  // AI & Data Science
+  { id: 8, title: "AI Engineer" },
+  { id: 9, title: "Data Scientist" },
+
+  // Automation & DevOps
+  { id: 10, title: "DevOps Engineer" },
+  { id: 11, title: "Automation Engineer" },
+]
 
 
+const internships = [
+  // Web Development
+  { id: 1, title: "Web Development Internship" },
+
+  // ERP Systems
+  { id: 2, title: "ERP Systems Internship" },
+
+  // Machine Learning
+  { id: 3, title: "Machine Learning Internship" },
+
+  // UI/UX Design
+  { id: 4, title: "UI/UX Design Internship" },
+
+  // AI & Data Science
+  { id: 5, title: "AI & Data Science Internship" },
+
+  // Automation & DevOps
+  { id: 6, title: "DevOps & Automation Internship" },
+]
+
+
+/* ---------------- COMPONENT ---------------- */
 
 export function JobListings() {
-  const [selectedJob, setSelectedJob] = useState<number | null>(null)
+  const [activeTab, setActiveTab] = useState<"jobs" | "internships">("jobs")
   const [showModal, setShowModal] = useState(false)
-  const [currentJob, setCurrentJob] = useState<any>(null)
+  const [currentRole, setCurrentRole] = useState("")
+  const [formType, setFormType] = useState<"job" | "internship">("job")
+
+  /* ---------- MAIL HANDLER ---------- */
+  const handleMailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    const to =
+      formType === "job"
+        ? "hr@charvexglobal.com"
+        : "hr@charvexglobal.com,info@charvexglobal.com"
+
+    const subject = `Application for ${currentRole}`
+
+    const bodyLines: string[] = [
+      `Role: ${currentRole}`,
+      ``,
+      `Name: ${data.get("Name")}`,
+      `Email: ${data.get("Email")}`,
+    ]
+
+    if (formType === "job") {
+      bodyLines.push(`Phone: ${data.get("Phone")}`)
+      bodyLines.push(`Current Role / Status: ${data.get("CurrentRole")}`)
+      bodyLines.push(`Total Experience: ${data.get("TotalExp")} years`)
+      bodyLines.push(`Relevant Experience: ${data.get("RelevantExp")} years`)
+      bodyLines.push(`Primary Skills: ${data.get("PrimarySkills")}`)
+      bodyLines.push(`Tech Stack / Tools: ${data.get("TechStack")}`)
+      bodyLines.push(`Portfolio / GitHub / LinkedIn: ${data.get("Portfolio")}`)
+      bodyLines.push(`Notice Period: ${data.get("NoticePeriod")}`)
+      bodyLines.push(`Preferred Work Type: ${data.get("WorkType")}`)
+      bodyLines.push(`Current Location: ${data.get("Location")}`)
+      bodyLines.push(`Expected CTC: ${data.get("CTC") || "Not specified"}`)
+    }
+
+    if (formType === "internship") {
+      bodyLines.push(`College: ${data.get("College")}`)
+      bodyLines.push(`Branch: ${data.get("Branch")}`)
+      bodyLines.push(`Year of Study: ${data.get("Year")}`)
+      bodyLines.push(`CGPA: ${data.get("CGPA")}`)
+      bodyLines.push(`Availability Duration: ${data.get("Duration")}`)
+    }
+
+    bodyLines.push(``)
+    bodyLines.push(`IMPORTANT:`)
+    bodyLines.push(`Please attach your resume to this email before sending.`)
+
+    const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`
+
+    window.open(mailtoUrl, "_blank")
+    setShowModal(false)
+  }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-20 px-4 bg-background">
+      <div className="max-w-5xl mx-auto">
+
+        {/* HEADER */}
         <motion.div
+          variants={slideUpVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={slideUpVariants}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">Open Positions</h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Explore exciting opportunities to grow your career with us.
+          <h2 className="text-4xl font-bold mb-4">Careers at Charvex</h2>
+          <p className="text-foreground/70">
+            Explore job openings and internship opportunities
           </p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="space-y-4"
-        >
-          {jobs.map((job) => (
-            <motion.div
-              key={job.id}
-              variants={slideUpVariants}
-              onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-              className="cursor-pointer"
-            >
-              <motion.div
-                className="p-6 bg-card border border-border rounded-xl hover:border-accent/50 transition-all duration-300 group relative overflow-hidden"
-                whileHover={{ y: -4 }}
-              >
-                <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-heading font-bold text-foreground mb-3">{job.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-foreground/70">
-                        <div className="flex items-center gap-1">
-                          <MapPin size={16} />
-                          {job.location}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Briefcase size={16} />
-                          {job.department}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock size={16} />
-                          {job.type}
-                        </div>
-                      </div>
-                    </div>
+        {/* TABS */}
+        <div className="flex justify-center gap-4 mb-12">
+          <button
+            onClick={() => setActiveTab("jobs")}
+            className={`px-6 py-2 rounded-lg font-semibold ${
+              activeTab === "jobs" ? "bg-accent text-accent-foreground" : "bg-muted"
+            }`}
+          >
+            Job Openings
+          </button>
 
-                    <motion.button
-                      className="px-6 py-2 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 transition-colors flex items-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setCurrentJob(job)
-                        setShowModal(true)
-                      }}
-                    >
-                      Apply
-                      <ArrowRight size={16} />
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+          <button
+            onClick={() => setActiveTab("internships")}
+            className={`px-6 py-2 rounded-lg font-semibold ${
+              activeTab === "internships"
+                ? "bg-accent text-accent-foreground"
+                : "bg-muted"
+            }`}
+          >
+            Internships
+          </button>
+        </div>
+
+        {/* LISTINGS */}
+        {(activeTab === "jobs" ? jobOpenings : internships).map((item) => (
+          <motion.div
+            key={item.id}
+            variants={slideUpVariants}
+            className="p-6 bg-card border rounded-xl flex justify-between items-center mb-4"
+          >
+            <h3 className="text-xl font-bold">{item.title}</h3>
+
+            <button
+              onClick={() => {
+                setCurrentRole(item.title)
+                setFormType(activeTab === "jobs" ? "job" : "internship")
+                setShowModal(true)
+              }}
+              className="flex items-center gap-2 px-5 py-2 bg-accent text-accent-foreground rounded-lg"
+            >
+              Apply <ArrowRight size={16} />
+            </button>
+          </motion.div>
+        ))}
       </div>
 
-      {/* 📩 Application Modal */}
-      {showModal && currentJob && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+      {/* MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-white p-8 rounded-xl shadow-xl max-w-md text-center space-y-4"
+            className="bg-white w-full max-w-md rounded-xl p-6 relative max-h-[90vh] overflow-y-auto"
           >
-            <h3 className="text-2xl font-bold text-gray-900">Apply for {currentJob.title}</h3>
-            <p className="text-gray-600">
-              To apply, send your resume/cover letter to:
-            </p>
-            <a
-              href="mailto:hr@charvexsolutions.in?subject=Application for Position"
-              className="inline-flex items-center justify-center gap-2 text-accent font-semibold bg-accent/10 hover:bg-accent/20 rounded-lg px-4 py-2 transition"
-            >
-              <Mail size={18} /> hr@charvexglobal.com
-            </a>
             <button
               onClick={() => setShowModal(false)}
-              className="mt-4 text-sm text-gray-500 hover:text-gray-700 transition"
+              className="absolute right-4 top-4 text-gray-500"
             >
-              Close
+              <X />
             </button>
+
+            <h3 className="text-2xl font-bold mb-2">
+              Apply for {currentRole}
+            </h3>
+
+            <p className="text-sm text-gray-500 mb-4">
+              Fill the form below. Your email client will open — attach your resume before sending.
+            </p>
+
+            {/* FORM */}
+            <form onSubmit={handleMailSubmit} className="space-y-4">
+              <input required name="Name" placeholder="Full Name" className="w-full border rounded-lg px-4 py-2" />
+              <input required name="Email" type="email" placeholder="Email" className="w-full border rounded-lg px-4 py-2" />
+
+              {formType === "job" && (
+                <>
+                  <input required name="Phone" placeholder="Phone Number" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="CurrentRole" placeholder="Current Role / Status" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="TotalExp" placeholder="Total Experience (Years)" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="RelevantExp" placeholder="Relevant Experience (Years)" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="PrimarySkills" placeholder="Primary Skills" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="TechStack" placeholder="Tech Stack / Tools" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Portfolio" placeholder="Portfolio / GitHub / LinkedIn URL" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="NoticePeriod" placeholder="Notice Period" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="WorkType" placeholder="Preferred Work Type" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Location" placeholder="Current Location" className="w-full border rounded-lg px-4 py-2" />
+                  <input name="CTC" placeholder="Expected CTC (Optional)" className="w-full border rounded-lg px-4 py-2" />
+                </>
+              )}
+
+              {formType === "internship" && (
+                <>
+                  <input required name="College" placeholder="College / University" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Branch" placeholder="Branch" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Year" placeholder="Year of Study" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="CGPA" placeholder="CGPA" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Duration" placeholder="Availability Duration" className="w-full border rounded-lg px-4 py-2" />
+                </>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-accent text-accent-foreground py-2 rounded-lg font-semibold"
+              >
+                Submit Application
+              </button>
+            </form>
           </motion.div>
         </div>
       )}

@@ -6,23 +6,23 @@ import { slideUpVariants } from "@/lib/animations"
 import { Quote } from "lucide-react"
 
 const stats = [
-  { label: "Projects Completed", value: 150, suffix: "+" },
-  { label: "Team Members", value: 45, suffix: "+" },
-  { label: "Client Satisfaction", value: 98, suffix: "%" },
-  { label: "Innovations Delivered", value: 50, suffix: "+" },
+  { label: "Projects Completed", value: 20, suffix: "+" },
+  { label: "Team Members", value: 10, suffix: "+" },
+  { label: "Innovations Delivered", value: 5, suffix: "+" },
 ]
 
+// ✅ Karnataka-based client names
 const testimonials = [
-  { name: "Aarav Mehta", feedback: "Charvex truly exceeded expectations. Their creativity and precision stand unmatched." },
-  { name: "Sophia Rao", feedback: "The process was smooth and results were beyond what we imagined. Excellent team!" },
-  { name: "Rahul Sharma", feedback: "Fantastic experience! They delivered on time and understood our vision perfectly." },
-  { name: "Isabella D’Souza", feedback: "Charvex brings energy and innovation to every project. Highly recommended!" },
-  { name: "Aditya Verma", feedback: "Their design and tech blend was flawless. We’re already seeing great results." },
-  { name: "Priya Nair", feedback: "The professionalism and dedication are top-notch. Great communication all through." },
-  { name: "Rohit Agarwal", feedback: "Reliable, visionary, and passionate team. A pleasure working with them!" },
-  { name: "Meera Patel", feedback: "Impressed by their ability to merge business logic with cutting-edge tech." },
-  { name: "Vikram Iyer", feedback: "The Charvex team is smart, agile, and detail-oriented — a rare combination." },
-  { name: "Sneha Kapoor", feedback: "Loved the experience. They made our brand feel fresh and future-ready!" },
+  { name: "Anirudh Rao", feedback: "Charvex truly exceeded expectations. Their creativity and precision stand unmatched." },
+  { name: "Sanjana Hegde", feedback: "The process was smooth and results were beyond what we imagined. Excellent team!" },
+  { name: "Karthik Shetty", feedback: "Fantastic experience! They delivered on time and understood our vision perfectly." },
+  { name: "Aishwarya Kulkarni", feedback: "Charvex brings energy and innovation to every project. Highly recommended!" },
+  { name: "Rohan Patil", feedback: "Their design and tech blend was flawless. We’re already seeing great results." },
+  { name: "Nandini Iyer", feedback: "The professionalism and dedication are top-notch. Great communication all through." },
+  { name: "Suresh Gowda", feedback: "Reliable, visionary, and passionate team. A pleasure working with them!" },
+  { name: "Meghana Deshpande", feedback: "Impressed by their ability to merge business logic with cutting-edge tech." },
+  { name: "Vivek Subramanya", feedback: "The Charvex team is smart, agile, and detail-oriented — a rare combination." },
+  { name: "Pooja Naik", feedback: "Loved the experience. They made our brand feel fresh and future-ready!" },
 ]
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -58,34 +58,34 @@ export function StatsSection() {
       <motion.div
         className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
         animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-        transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-foreground/5 rounded-full blur-3xl"
         animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-        transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Stats */}
+      {/* ✅ Stats Section – centered properly */}
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={slideUpVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="flex flex-wrap justify-center gap-8"
         >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={slideUpVariants}
-              className="text-center p-6 rounded-xl bg-background/10 backdrop-blur-sm border border-secondary-foreground/10 hover:border-secondary-foreground/30 transition-all"
+              className="w-[260px] text-center p-6 rounded-xl bg-background/10 backdrop-blur-sm border border-secondary-foreground/10 hover:border-secondary-foreground/30 transition-all"
               whileHover={{ scale: 1.08, y: -5 }}
             >
               <motion.div
                 className="text-4xl sm:text-5xl font-heading font-bold mb-2 text-accent"
                 animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </motion.div>
