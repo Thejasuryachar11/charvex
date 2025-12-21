@@ -232,14 +232,14 @@ Charvex Global remains committed to maintaining the highest standards of data se
               <li className="flex items-start gap-3">
   <Mail size={16} className="text-[#FF6B00] mt-1" />
   <div className="flex flex-col gap-1">
-    <a
+    {/* <a
       href="mailto:hr@charvexglobal.com"
       target="_blank"
       rel="noopener noreferrer"
       className="text-white/70 hover:text-[#FF6B00] text-sm"
     >
       hr@charvexglobal.com
-    </a>
+    </a> */}
 
     <a
       href="mailto:info@charvexglobal.com"

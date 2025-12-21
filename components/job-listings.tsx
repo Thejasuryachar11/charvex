@@ -76,31 +76,28 @@ export function JobListings() {
         `Relevant Experience: ${data.get("RelevantExp")} years`,
         `Primary Skills: ${data.get("PrimarySkills")}`,
         `Tech Stack / Tools: ${data.get("TechStack")}`,
-        `Portfolio: ${data.get("Portfolio")}`,
+        `Portfolio / LinkedIn / GitHub: ${data.get("Portfolio")}`,
         `Notice Period: ${data.get("NoticePeriod")}`,
-        `Preferred Work Type: ${data.get("WorkType")}`,
-        `Location: ${data.get("Location")}`,
-        `Expected CTC: ${data.get("CTC") || "Not specified"}`
+        `Current Location: ${data.get("Location")}`
       )
     }
 
     if (formType === "internship") {
       body.push(
-        `College: ${data.get("College")}`,
+        `College / University: ${data.get("College")}`,
         `Branch: ${data.get("Branch")}`,
         `Year of Study: ${data.get("Year")}`,
-        `CGPA: ${data.get("CGPA")}`,
         `Availability Duration: ${data.get("Duration")}`
       )
     }
 
-    body.push("", "IMPORTANT:", "Please attach your resume before sending.")
+    body.push("", "IMPORTANT:", "Please attach your resume before sending this email.")
 
     const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body.join("\n"))}`
 
-    openMailClient(mailtoUrl) // ✅ WORKS EVERYWHERE
+    openMailClient(mailtoUrl)
     setShowModal(false)
   }
 
@@ -124,16 +121,32 @@ export function JobListings() {
 
         {/* TABS */}
         <div className="flex justify-center gap-4 mb-12">
-          <button onClick={() => setActiveTab("jobs")} className={`px-6 py-2 rounded-lg font-semibold ${activeTab === "jobs" ? "bg-accent text-accent-foreground" : "bg-muted"}`}>
+          <button
+            onClick={() => setActiveTab("jobs")}
+            className={`px-6 py-2 rounded-lg font-semibold ${
+              activeTab === "jobs" ? "bg-accent text-accent-foreground" : "bg-muted"
+            }`}
+          >
             Job Openings
           </button>
-          <button onClick={() => setActiveTab("internships")} className={`px-6 py-2 rounded-lg font-semibold ${activeTab === "internships" ? "bg-accent text-accent-foreground" : "bg-muted"}`}>
+          <button
+            onClick={() => setActiveTab("internships")}
+            className={`px-6 py-2 rounded-lg font-semibold ${
+              activeTab === "internships"
+                ? "bg-accent text-accent-foreground"
+                : "bg-muted"
+            }`}
+          >
             Internships
           </button>
         </div>
 
         {(activeTab === "jobs" ? jobOpenings : internships).map((item) => (
-          <motion.div key={item.id} variants={slideUpVariants} className="p-6 bg-card border rounded-xl flex justify-between items-center mb-4">
+          <motion.div
+            key={item.id}
+            variants={slideUpVariants}
+            className="p-6 bg-card border rounded-xl flex justify-between items-center mb-4"
+          >
             <h3 className="text-xl font-bold">{item.title}</h3>
             <button
               onClick={() => {
@@ -149,19 +162,52 @@ export function JobListings() {
         ))}
       </div>
 
+      {/* MODAL */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <motion.div className="bg-white w-full max-w-md rounded-xl p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onClick={() => setShowModal(false)} className="absolute right-4 top-4 text-gray-500">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute right-4 top-4 text-gray-500"
+            >
               <X />
             </button>
 
-            <h3 className="text-2xl font-bold mb-4">Apply for {currentRole}</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              Apply for {currentRole}
+            </h3>
 
             <form onSubmit={handleMailSubmit} className="space-y-4">
               <input required name="Name" placeholder="Full Name" className="w-full border rounded-lg px-4 py-2" />
               <input required name="Email" type="email" placeholder="Email" className="w-full border rounded-lg px-4 py-2" />
-              <button type="submit" className="w-full bg-accent text-accent-foreground py-2 rounded-lg font-semibold">
+
+              {formType === "job" && (
+                <>
+                  <input required name="Phone" placeholder="Phone Number" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="CurrentRole" placeholder="Current Role / Status" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="TotalExp" placeholder="Total Experience (Years)" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="RelevantExp" placeholder="Relevant Experience (Years)" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="PrimarySkills" placeholder="Primary Skills" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="TechStack" placeholder="Tech Stack / Tools" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Portfolio" placeholder="LinkedIn / GitHub / Portfolio URL" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="NoticePeriod" placeholder="Notice Period" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Location" placeholder="Current Location" className="w-full border rounded-lg px-4 py-2" />
+                </>
+              )}
+
+              {formType === "internship" && (
+                <>
+                  <input required name="College" placeholder="College / University" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Branch" placeholder="Branch" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Year" placeholder="Year of Study" className="w-full border rounded-lg px-4 py-2" />
+                  <input required name="Duration" placeholder="Availability Duration" className="w-full border rounded-lg px-4 py-2" />
+                </>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-accent text-accent-foreground py-2 rounded-lg font-semibold"
+              >
                 Submit Application
               </button>
             </form>
