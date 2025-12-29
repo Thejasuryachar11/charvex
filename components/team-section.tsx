@@ -72,6 +72,12 @@ const team = [
     linkedin: "https://www.linkedin.com/in/thirumala-b066b2266/",
   },
   {
+    name: "Kushal Kumar",
+    role: "Support Engineer",
+    email: "kushal@charvexglobal.com",
+    linkedin: "https://www.linkedin.com/in/kushal-kumar-70a8b2266/",
+  },
+  {
     name: "Abhishek Koli",
     role: "Developer",
     email: "abhishek@charvexglobal.com",
@@ -94,7 +100,7 @@ const leadership = team.filter((m) =>
 const roleGroups = {
   Leadership: ["COO", "CTO", "CPO", "CMO & VP"],
   Engineering: ["Head of Engineering", "Developer"],
-  Design: ["UI/UX Designer"],
+  Design: ["UI/UX Designer", "Support Engineer"],
   Operations: ["HR Manager", "Strategy Lead"],
 }
 
