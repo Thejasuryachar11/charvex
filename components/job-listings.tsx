@@ -28,6 +28,7 @@ const internships = [
   { id: 4, title: "UI/UX Design Internship" },
   { id: 5, title: "AI & Data Science Internship" },
   { id: 6, title: "DevOps & Automation Internship" },
+  { id: 7, title: "IOT Internship / Embedded Internship" },
 ]
 
 /* ---------------- COMPONENT ---------------- */
